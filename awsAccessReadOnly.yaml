@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  CrossAccountReadOnlyRole:
+    Type: "AWS::IAM::Role"
+    Properties: 
+      RoleName: "Itusaservices-AccountReadOnlyRole"
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: "Allow"
+            Principal: 
+              AWS: "arn:aws:iam::130916844641:root"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns: 
+        - "arn:aws:iam::aws:policy/ReadOnlyAccess"
